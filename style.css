@@ -128,3 +128,26 @@ body {
     background: white;
     color: black;
 }
+.front .inner,
+.back .inner {
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    position: relative;
+}
+
+.front, .back {
+    transform: translateZ(0);
+}
+
+.back {
+    overflow-y: auto;
+    color: #333;
+}
+
+.front h2,
+.rating {
+    color: white;
+}
