@@ -23,23 +23,23 @@ body {
     gap: 30px;
 }
 
-/* CARD CONTAINER */
+/* CARD */
 .card {
     width: 350px;
     height: 500px;
     perspective: 1500px;
 
-    position: relative; /* IMPORTANT FIX */
+    position: relative;
 }
 
-/* FLIP CONTENT */
-.card .content {
+/* FLIP CONTAINER */
+.content {
     width: 100%;
     height: 100%;
-
     position: relative;
+
     transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(0.75, 0, 0.85, 1);
+    transition: transform 0.9s ease;
 }
 
 /* FLIP TRIGGER */
@@ -51,21 +51,20 @@ body {
     transform: rotateY(180deg);
 }
 
-/* FRONT & BACK */
+/* FRONT + BACK */
 .front,
 .back {
     position: absolute;
     width: 100%;
     height: 100%;
+
     border-radius: 20px;
-
     backface-visibility: hidden;
-    overflow: hidden;
 
-    transform: translateZ(0); /* FIX GLITCHES */
+    overflow: hidden;
 }
 
-/* FRONT SIDE */
+/* FRONT */
 .front {
     background-size: cover;
     background-position: center;
@@ -88,8 +87,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    text-align: center;
     color: white;
+    text-align: center;
 }
 
 .front h2 {
@@ -103,10 +102,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* BACK SIDE */
+/* BACK */
 .back {
-    background: #fff;
+    background: white;
     transform: rotateY(180deg);
+    padding: 20px;
+
     overflow-y: auto;
 }
 
@@ -115,7 +116,6 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 
-    padding: 20px;
     position: relative;
     z-index: 2;
 }
@@ -131,24 +131,18 @@ body {
 }
 
 .info .icon {
-    display: flex;
-    flex-direction: column;
     font-size: 0.75rem;
 }
 
 /* DESCRIPTION */
 .description {
     grid-column: span 2;
-
     font-size: 0.9rem;
     line-height: 1.5;
     color: #333;
-
-    max-height: 160px;
-    overflow-y: auto;
 }
 
-/* META INFO */
+/* LOCATION + PRICE */
 .location,
 .price {
     font-weight: 700;
